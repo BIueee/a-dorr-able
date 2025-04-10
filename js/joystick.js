@@ -14,10 +14,10 @@ let keys = {
 };
 
 function updateKeyState() {
-  Key.LEFT = keys.left;
-  Key.RIGHT = keys.right;
-  Key.UP = keys.up;
-  Key.DOWN = keys.down;
+  Key.left = keys.left;
+  Key.right = keys.right;
+  Key.up = keys.up;
+  Key.down = keys.down;
 }
 
 function handleMove(e) {
