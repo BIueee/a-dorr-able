@@ -37,8 +37,8 @@ function handleMove(e) {
   let knobX = distance * Math.cos(angle);
   let knobY = distance * Math.sin(angle);
 
-  joystick.style.left = `${origin.x + knobX - 30}px`;
-  joystick.style.top = `${origin.y + knobY - 30}px`;
+  joystick.style.left = `${origin.x + knobX - 45}px`;
+  joystick.style.top = `${origin.y + knobY - 45}px`;
 
   // Set key states
   keys.left = knobX < -threshold;
@@ -61,6 +61,6 @@ container.addEventListener('touchmove', handleMove, { passive: true });
 container.addEventListener('touchend', () => {
   keys.left = keys.right = keys.up = keys.down = false;
   updateKeyState();
-  joystick.style.left = '30px';
-  joystick.style.top = '30px';
+  joystick.style.left = '45px';
+  joystick.style.top = '45px';
 });
