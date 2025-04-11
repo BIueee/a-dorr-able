@@ -785,31 +785,42 @@ function reset(){
 	},500);
 }
 
-///////////////////////////////////////////////////////////////////
-
 // Simple XOR encryption (key = 1)
-// The only purpose is to obscure it in the hash
-
 function encryptString(string){
 	var result = "";
-	for(var i=0;i<string.length;i++){
-		result += String.fromCharCode(string.charCodeAt(i)^1);
+	for(var i = 0; i < string.length; i++){
+		result += String.fromCharCode(string.charCodeAt(i) ^ 1);
 	}
 	return result;
 }
 function decryptString(string){
-	return encryptString(string); // it's XOR, duh
+	return encryptString(string); // XOR is reversible
 }
 
 var yourMessage = document.getElementById("your_message");
 var yourLink = document.getElementById("your_link");
+
 function linkChangey(){
-	if(yourMessage.value==""){
+	if (!yourLink) return; // only try if yourLink exists
+
+	if (yourMessage.value === "") {
 		yourLink.value = "http://ncase.me/door/";
-	}else{
-		yourLink.value = "http://ncase.me/door/#"+encodeURIComponent(encryptString(yourMessage.value));
+	} else {
+		yourLink.value = "http://ncase.me/door/#" + encodeURIComponent(encryptString(yourMessage.value));
 	}
-};
+}
+
+if (yourMessage) {
+	yourMessage.onchange = linkChangey;
+	yourMessage.oninput = linkChangey;
+	linkChangey();
+}
+
+if (yourLink) {
+	yourLink.onclick = function() {
+		yourLink.select();
+	};
+}
 yourMessage.onchange = linkChangey;
 yourMessage.oninput = linkChangey;
 linkChangey();
