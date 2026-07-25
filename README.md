@@ -11,8 +11,7 @@ idk whati did here BUTT---
 
 
 
-
-
+**BAD JOYSTICK IMPLEMENTATION BY ME ^^**
 **developed by [Nicky Case](http://ncase.me/).**
 
 ---
